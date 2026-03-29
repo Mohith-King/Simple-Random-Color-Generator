@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Background Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p id="para">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, omnis.
+      </p>
+      <button id="btn" type="button">Change Background</button>
+    </div>
+
+    <script>
+      const bg = document.querySelector(".container");
+      const btn = document.querySelector("#btn");
+      const para = document.querySelector("#para");
+
+      function getRandomColor() {
+        return (
+          "#" +
+          Math.floor(Math.random() * 0xffffff)
+            .toString(16)
+            .padStart(6, "0")
+        );
+      }
+
+      btn.addEventListener("click", () => {
+        bg.style.backgroundColor = getRandomColor();
+        para.style.color = getRandomColor();
+      });
+    </script>
+  </body>
+</html>
